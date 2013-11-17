@@ -4,7 +4,7 @@
 AM_CXXFLAGS = $(PTHREAD_CFLAGS) -I../include/ -I../dep/gtest-1.6.0/include/
 AM_LIBS = $(PTHREAD_LIBS)
 
-check_PROGRAMS = test_array test_ioh test_libcdsh test_timeh test_bitsequence test_bitsequenceonelevelrank test_sequence test_mappernone test_codernone test_permutationmrrr test_treelouds test_memorymanager
+check_PROGRAMS = test_array test_ioh test_libcdsh test_timeh test_bitsequence test_bitsequenceonelevelrank test_sequence test_mappernone test_codernone test_permutationmrrr test_treelouds test_memorymanager valgrind_tests
 
 LDADD = ../dep/gtest-1.6.0/lib/libgtest.la ../lib/libcds$(CDS_API_VERSION).la
 test_array_SOURCES                   = test_array.cpp test_main.cpp
@@ -22,5 +22,6 @@ test_codernone_SOURCES               = test_codernone.cpp test_main.cpp
 test_permutationmrrr_SOURCES         = test_permutationmrrr.cpp test_main.cpp
 test_treelouds_SOURCES               = test_treelouds.cpp test_main.cpp
 test_memorymanager_SOURCES           = test_memorymanager.cpp test_main.cpp
+valgrind_tests_SOURCES               =
 
 TESTS = $(check_PROGRAMS)

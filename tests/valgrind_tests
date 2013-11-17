@@ -1,0 +1,17 @@
+#!/bin/sh
+
+VALGRIND=""
+for d in /usr/bin /usr/local/bin; do
+  test -x $d/valgrind && VALGRIND=$d/valgrind
+done
+
+if [ -n "$VALGRIND" ]; then
+  for f in test_array test_ioh test_libcdsh test_timeh test_bitsequence \
+           test_bitsequenceonelevelrank test_sequence test_mappernone \
+           test_codernone test_permutationmrrr test_treelouds \
+           test_memorymanager; do
+    echo "Running $f with valgrind."
+    $VALGRIND --leak-check=yes ./$f
+  done
+fi
+exit 0
